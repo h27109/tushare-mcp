@@ -7,7 +7,7 @@ load_dotenv(override=True)
 
 from apis import stock_mcp, finance_mcp, stock_index_mcp, fund_mcp, macro_china_mcp, macro_international_mcp, time_utils_mcp
 
-from youtebe_subtitles import youtebe_subtitles_mcp
+from youtube_subtitles import youtube_subtitles_mcp
 
 def main():
     services = [
@@ -18,7 +18,7 @@ def main():
         {"name":"macro_china",          "mcp": macro_china_mcp, "description": "中国宏观数据查询服务"},
         {"name":"macro_international",  "mcp": macro_international_mcp, "description": "国际宏观数据查询服务"},
         {"name":"time",                 "mcp": time_utils_mcp, "description": "时间工具"},
-        {"name":"youtebe_subtitles",    "mcp": youtebe_subtitles_mcp, "description": "youtebe视频字幕查询服务"}
+        {"name":"youtube_subtitles",    "mcp": youtube_subtitles_mcp, "description": "youtube视频字幕查询服务"}
     ]
     @contextlib.asynccontextmanager
     async def lifespan(app: FastAPI):

@@ -2,7 +2,7 @@ from youtube_transcript_api import YouTubeTranscriptApi
 
 from mcp.server.fastmcp import FastMCP
 
-mcp = FastMCP('youtebe_subtitles_server')
+mcp = FastMCP('youtube_subtitles_server')
 
 @mcp.tool(name = 'list_subtitles')
 def list_subtitles(video_id) -> str:
