@@ -1,8 +1,8 @@
-from mcp.server.fastmcp import FastMCP
+from .secure_mcp import SecureFastMCP
 
 from .macro_international import *
 
-mcp = FastMCP('tushare_macro_international_server')
+mcp = SecureFastMCP('tushare_macro_international_server')
 
 @mcp.tool(name = 'us_tycr', description = us_tycr_wrapper.__doc__)
 def us_tycr(date='',start_date='',end_date='',fields=''):

@@ -26,6 +26,11 @@ def run_mcp_server(service_name, module_path, instance_name, port):
     uvicorn.run(app, host="0.0.0.0", port=port)
 
 def main():
+    # 检查API密钥是否设置
+    api_key = os.getenv("MCP_API_KEY", "default_api_key")
+    if api_key == "default_api_key":
+        print("警告: 未设置MCP_API_KEY环境变量，使用默认密钥")
+    
     # 配置服务和端口
     services = [
         {"name": "股票数据查询服务", "module": "apis", "instance": "stock_mcp", "port": 8000},
@@ -52,6 +57,9 @@ def main():
     print("\n服务已启动，可通过以下地址访问：")
     for service in services:
         print(f"{service['name']}: http://localhost:{service['port']}")
+    
+    print("\n注意: 所有服务都需要Bearer认证")
+    print(f"请在请求头中添加: Authorization: Bearer {api_key}")
     
     try:
         # 等待所有进程完成

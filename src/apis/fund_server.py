@@ -1,8 +1,8 @@
-from mcp.server.fastmcp import FastMCP
+from .secure_mcp import SecureFastMCP
 
 from .fund import *
 
-mcp = FastMCP('tushare_fund_server')
+mcp = SecureFastMCP('tushare_fund_server')
 
 @mcp.tool(name = 'fund_basic', description = fund_basic_wrapper.__doc__)
 def fund_basic(ts_code, market='',status=''):

@@ -1,11 +1,11 @@
-from mcp.server.fastmcp import FastMCP
+from .secure_mcp import SecureFastMCP
 from pandas import DataFrame
 from .stock import *
 
 """
 股票数据查询服务器
 """
-mcp = FastMCP('tushare_stock_server')
+mcp = SecureFastMCP('tushare_stock_server')
 
 @mcp.tool(name = 'stock_basic', description = stock_basic_wrapper.__doc__)
 def stock_basic(ts_code,name='',exchange='',market='',is_hs='',list_status='') -> DataFrame:

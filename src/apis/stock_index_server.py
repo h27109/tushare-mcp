@@ -1,8 +1,8 @@
-from mcp.server.fastmcp import FastMCP
+from .secure_mcp import SecureFastMCP
 
 from .stock_index import *
 
-mcp = FastMCP('tushare_stock_index_server')
+mcp = SecureFastMCP('tushare_stock_index_server')
 
 @mcp.tool(name = 'index_basic', description = index_basic_wrapper.__doc__)
 def index_basic(ts_code,name='',market='',publisher='',category=''):

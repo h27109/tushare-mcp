@@ -1,8 +1,8 @@
-from mcp.server.fastmcp import FastMCP
+from .secure_mcp import SecureFastMCP
 
 from .finance import *
 
-mcp = FastMCP('tushare_finance_server')
+mcp = SecureFastMCP('tushare_finance_server')
 
 @mcp.tool(name = 'income', description = income_wrapper.__doc__)
 def income(ts_code,ann_date = '', f_ann_date='',start_date='',end_date='',report_type='',period='',comp_type=''):

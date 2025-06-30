@@ -1,8 +1,8 @@
-from mcp.server.fastmcp import FastMCP
+from .secure_mcp import SecureFastMCP
 
 from .macro_china import *
 
-mcp = FastMCP('tushare_macro_china_server')
+mcp = SecureFastMCP('tushare_macro_china_server')
 
 @mcp.tool(name = 'shibor', description = shibor_wrapper.__doc__)
 def shibor(date='',start_date='',end_date=''):
