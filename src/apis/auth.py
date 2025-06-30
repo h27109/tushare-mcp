@@ -16,10 +16,6 @@ async def verify_api_key(credentials: HTTPAuthorizationCredentials = Security(se
     """
     验证Bearer令牌是否有效
     """
-    print(f"收到认证请求，完整HTTP头域:")
-    for header_name, header_value in credentials.scheme.items():
-        print(f"  {header_name}: {header_value}")
-    print(f"Bearer令牌: {credentials.credentials}")
     if credentials.credentials != API_KEY:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
