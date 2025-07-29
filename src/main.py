@@ -39,7 +39,11 @@ def main(port=8000):
     # 添加各个server的路由。
     # 客户端配置的时候，url=http://ip:8000/{name}/mcp，如http://127.0.0.1:8000/stock/mcp
     for service in services:
-        app.mount(f"/{service['name']}", service['mcp'].streamable_http_app())
+        app.include_router(
+        service['mcp'].streamable_http_app().router,
+        prefix=f"/{service['name']}",
+        tags=[service['name']]
+    )
 
     logging.basicConfig(
         level=logging.DEBUG,  # 设置日志级别
